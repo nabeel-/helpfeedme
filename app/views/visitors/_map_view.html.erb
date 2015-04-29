@@ -1,0 +1,110 @@
+		<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD8yYGmKYSFz0kvt12GbwqRFqDwQbBj_Eg&sensor=false&extension=.js'></script> 
+ 
+<script> 
+    google.maps.event.addDomListener(window, 'load', init);
+    var map;
+    function init() {
+        var mapOptions = {
+            center: new google.maps.LatLng(42.355087,-71.057526),
+            zoom: 14,
+            zoomControl: false,
+            disableDoubleClickZoom: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            scrollwheel: false,
+            panControl: false,
+            streetViewControl: false,
+            draggable : false,
+            overviewMapControl: false,
+            overviewMapControlOptions: {
+                opened: false,
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [
+  {
+    "featureType": "landscape",
+    "stylers": [
+      { "saturation": -100 },
+      { "lightness": 60 }
+    ]
+  },{
+    "featureType": "road.local",
+    "stylers": [
+      { "saturation": -100 },
+      { "lightness": 40 },
+      { "visibility": "on" }
+    ]
+  },{
+    "featureType": "transit",
+    "stylers": [
+      { "saturation": -100 },
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "administrative.province",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "visibility": "on" },
+      { "lightness": 30 }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#ef8c25" },
+      { "lightness": 40 }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#b6c54c" },
+      { "lightness": 40 },
+      { "saturation": -40 }
+    ]
+  },{
+  }
+],
+        }
+        var mapElement = document.getElementById('bos_google_map');
+        var map = new google.maps.Map(mapElement, mapOptions);
+        var title = document.createElement('h1');
+        title.className = "title-header";
+        title.innerHTML = 'Find food you want. Fast.';
+        var wrapper = document.createElement('div');
+        wrapper.className = "wrapper";
+        wrapper.appendChild(title);
+
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(wrapper);
+
+}
+</script>
+<style>
+    #bos_google_map {
+        height:400px;
+        width:1920px;
+    }
+    .wrapper {
+      left: 0;
+      background-color: rgba(255,255,255,0.6);
+      width: 100%;
+      text-align: center;
+    }
+    .title-header {
+      color: #e3553c;
+      line-height: 400px;
+      font-size: 50px;
+    }
+</style>
+
+<div id='bos_google_map'></div>

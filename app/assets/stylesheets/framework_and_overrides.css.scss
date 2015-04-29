@@ -2,16 +2,50 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #404040;
+  color: #b3b3b3;
+  text-align: center;
+  line-height: 60px;
+}
+
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
   margin: 0 auto;
   }
 // override for the 'Home' navigation link
+.navbar {
+  min-height: 80px;
+}
 .navbar-brand {
-  font-size: inherit;
-  }
-
+  height:80px;
+}
+.navbar-brand img {
+  height:100%;
+  margin: 0;
+}
+.navbar-nav > li > a {
+  line-height: 45px;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  text-transform:uppercase;
+}
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
@@ -35,10 +69,9 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  margin-top: 75px; // accommodate the navbar
   }
 section {
   @extend .row;
@@ -79,4 +112,10 @@ section {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-xs;
+}
+
+// Extended
+.navbar-inverse {
+  background-color: #e3553c;
+  border: none;
 }
