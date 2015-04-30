@@ -8,4 +8,8 @@ class Restaurant < ActiveRecord::Base
   accepts_nested_attributes_for :business_detail
   accepts_nested_attributes_for :contact_detail
 
+  def self.search(query_string="")
+    Restaurant.where 'description LIKE ?', "%#{query_string}%"
+  end
+
 end
