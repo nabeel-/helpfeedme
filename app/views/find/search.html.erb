@@ -1,0 +1,18 @@
+<p>Showing results for <%= @query %></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @res.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
