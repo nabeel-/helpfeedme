@@ -1,6 +1,7 @@
 // import the CSS framework
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 
 html {
   position: relative;
@@ -25,6 +26,27 @@ body {
   margin-bottom: 0;
   line-height: 60px;
 }
+
+.search-area {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.search-area h2 {
+  font-weight: normal;
+}
+
+.btn-orange, .btn-orange:hover, .btn-orange:focus {
+   color: #fff;
+}
+
+.btn-orange {
+  background-color: #e3553c;
+}
+
+.form-group, .form-inline .search-box, .search-btn {
+  width: 100%;
+} 
 
 
 // make all images responsive by default

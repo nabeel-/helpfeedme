@@ -8,8 +8,13 @@ class Restaurant < ActiveRecord::Base
   accepts_nested_attributes_for :business_detail
   accepts_nested_attributes_for :contact_detail
 
-  def self.search(query_string="")
-    Restaurant.where 'description ILIKE ?', "%#{query_string}%"
+  def self.search(query_string=nil)
+    if query_string
+      search_length = query_string.split.length
+      Restaurant.where([(['description ILIKE ?'] * search_length).join('AND ')] + query_string.split.map { |string| "%#{string}%" })
+    else
+      Restaurant.all
+    end
   end
 
 end
