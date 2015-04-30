@@ -116,6 +116,15 @@ body {
   text-align: center;
 }
 
+.restaurant-detail a {
+  color: #e3353c;
+}
+.restaurant-detail a:hover {
+  color: rgba(227, 85, 60, 0.75);
+  background-color: #fff;
+  text-decoration: none;
+}
+
 .modal a {
   color: rgba(227, 85, 60, 0.75);
 }
@@ -124,6 +133,45 @@ body {
   text-decoration: none;
   background-color: #f7f7f7;
   color: rgba(227, 85, 60, 0.5);
+}
+
+.restaurant-detail {
+  border: 1px solid #e3553c;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  min-height: 200px;
+}
+
+.restaurant-detail hr {
+  margin-top: 0;
+}
+
+.restaurant-detail table tr td {
+  font-size: 14px;
+}
+
+.table th, .table td { 
+  border-top: none !important; 
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  font-size: 18px;
+  color: #7f7f7f;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   color: #e3553c;
+   font-size: 18px;
 }
 
 // make all images responsive by default

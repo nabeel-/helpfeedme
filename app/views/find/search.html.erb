@@ -1,18 +1,68 @@
-<p>Showing results for <%= @query %></p>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
+<div class="container">
+  <h3>Results for <%= @query %></h3>
+  <div class="row">
 
-  <tbody>
     <% @res.each do |restaurant| %>
+      <div class="col-md-6">
+        <div class="restaurant-detail">
+          <h5><%= link_to_if restaurant.contact_detail.website, restaurant.name, restaurant.contact_detail.website %></h5>
+          <hr>
+          <div class="row">
+            <div class="col-xs-6">
+              <table class="table">
+                <tr>
+                  <td><span class="glyphicon glyphicon-home"></span></td>
+                  <td>
+                    <%= restaurant.contact_detail.address_one %>
+                    <br>
+                    <%= restaurant.contact_detail.city %>, <%= restaurant.contact_detail.state %>, <%= restaurant.contact_detail.zip %>
+                  </td>
+                </tr>
+                <% if restaurant.contact_detail.phone %>
+                  <tr>
+                    <td><span class="glyphicon glyphicon-earphone"></span></td>
+                    <td><%= restaurant.contact_detail.phone %></td>
+                  </tr>
+                <% end %>
+                <% if restaurant.contact_detail.email %>
+                  <tr>
+                    <td><span class="glyphicon glyphicon-envelope"></span></td>
+                    <td><%= restaurant.contact_detail.email %></td>
+                  </tr>
+                <% end %>
+              </table>
+            </div>
+            <div class="col-xs-6">
+              <table class="table">
+                <tr>
+                  <td>
+                    <div class="rating">
+                      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @res.each do |restaurant| %>
       <tr>
         <td><%= restaurant.name %></td>
         <td><%= restaurant.description %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+</div>
