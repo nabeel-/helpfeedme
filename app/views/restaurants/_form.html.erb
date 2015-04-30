@@ -1,0 +1,55 @@
+<%= form_for(@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :chain_id %><br>
+    <%= f.number_field :chain_id %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+
+  <%= f.fields_for :food_detail do |s| %>
+
+    <%= s.text_field :cuisine %>
+    <%= s.check_box :breakfast %>
+    <%= s.check_box :lunch %>
+    <%= s.check_box :dinner %>
+    <%= s.check_box :takeout %>
+    <%= s.check_box :delivery %>
+    <%= s.check_box :lowfat %>
+    <%= s.check_box :healthy %>
+    <%= s.check_box :organic %>
+    <%= s.check_box :gluten_free %>
+    <%= s.check_box :vegan %>
+    <%= s.check_box :vegetarian %>
+
+  <% end %> 
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

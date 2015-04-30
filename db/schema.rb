@@ -11,7 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224203311) do
+ActiveRecord::Schema.define(version: 20150429204132) do
+
+  create_table "business_details", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.text     "hours"
+    t.string   "attire"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "chains", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contact_details", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.string   "phone"
+    t.string   "website"
+    t.string   "email"
+    t.string   "address_one"
+    t.string   "address_two"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "food_details", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.string   "cuisine"
+    t.boolean  "breakfast"
+    t.boolean  "lunch"
+    t.boolean  "dinner"
+    t.boolean  "takeout"
+    t.boolean  "delivery"
+    t.boolean  "lowfat"
+    t.boolean  "healthy"
+    t.boolean  "organic"
+    t.boolean  "gluten_free"
+    t.boolean  "vegan"
+    t.boolean  "vegetarian"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "chain_id"
+    t.decimal  "rating"
+    t.integer  "price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
