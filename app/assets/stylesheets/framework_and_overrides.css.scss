@@ -30,24 +30,101 @@ body {
 .search-area {
   text-align: center;
   font-family: 'Raleway', sans-serif;
+  color: #fff;
 }
 
 .search-area h2 {
   font-weight: normal;
+  display:inline-block;
+  margin-top: 8px;
 }
 
-.btn-orange, .btn-orange:hover, .btn-orange:focus {
-   color: #fff;
+.btn-white, .btn-white:hover, .btn-white:focus {
+   color: #e3553c;
 }
 
-.btn-orange {
-  background-color: #e3553c;
+.btn-white {
+  background-color: #fff;
 }
 
 .form-group, .form-inline .search-box, .search-btn {
   width: 100%;
 } 
 
+.floating {
+  background-color: #e3553c;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.outline {
+  text-align: center;
+  border: 2px solid #e3553c;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.number {
+    padding: 8px;
+    padding-top: 20px;
+    color: #e3553c;
+    font-size: 26px;
+}
+
+.outline hr {
+  border-color: #e3553c;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.outline p {
+  font-size: 16px;
+  line-height: 25px;
+  width: 70%;
+  margin:0 auto;
+}
+
+.step {
+  font-size: 45px;
+  margin-top: 20px;
+  color: #e3553c;
+}
+
+.disclaimer {
+  margin-top: 50px;
+  color: #e3553c;
+}
+
+.modal-content {
+  background-color: #f7f7f7;
+  border: none;
+  color: #e3553c;
+}
+
+.modal-title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 16px;
+}
+
+.modal-body {
+  padding: 20px 50px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.modal a {
+  color: rgba(227, 85, 60, 0.75);
+}
+
+.modal a:hover {
+  text-decoration: none;
+  background-color: #f7f7f7;
+  color: rgba(227, 85, 60, 0.5);
+}
 
 // make all images responsive by default
 img {
@@ -95,7 +172,7 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
   width: 100%;
   margin-top: 75px; // accommodate the navbar
   }

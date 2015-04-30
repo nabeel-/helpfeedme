@@ -2,21 +2,74 @@
   <%= render 'visitors/map_view' %>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 search-area">
+  <div class="row floating">
+    <div class="col-md-12 search-area">
       <%= form_tag("/find", method: "get", class: 'form-inline') do %>
         <div class="form-group">
-          <h2><%= label_tag(:q, "I'm in the mood for ") %></h2>
           <div class="row">
-            <div class="col-sm-9">
-              <%= text_field_tag :q, nil, class: 'form-control search-box' %>
+            <div class="col-sm-4">
+              <h2><%= label_tag(:q, "I'm in the mood for...") %></h2>
             </div>
-            <div class="col-sm-3">
-              <%= submit_tag "Find it.", :name => nil, class: 'btn btn-med btn-orange search-btn' %>
+            <div class="col-sm-6">
+              <%= text_field_tag :q, nil, class: 'form-control search-box input-lg', placeholder: 'middle eastern food' %>
+            </div>
+            <div class="col-sm-2">
+              <%= submit_tag "Find it.", :name => nil, class: 'btn btn-lg btn-white search-btn' %>
             </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="outline">
+        <div class="number">one.</div>
+        <hr>
+        <p>Let us know what you're in the mood to eat.</p>
+        <span class="glyphicon glyphicon-comment step"></span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="outline">
+        <div class="number">two.</div>
+        <hr>
+        <p>We'll find you the best place to get it.</p>
+        <span class="glyphicon glyphicon-road step"></span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="outline">
+        <div class="number">three.</div>
+        <hr>
+        <p>You sit back and enjoy the perfect meal.</p>
+        <span class="glyphicon glyphicon-cutlery step"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row disclaimer">
+    <div class="col-xs-12 text-center">
+      <p>* Currently searches restaurants located in the Boston area only.</p>
+    </div>
+  </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="About" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="title">About</h4>
+        </div>
+        <div class="modal-body">
+          <h5>Help Feed Me is a simple, easy way to find the best food around (Boston). Just enter what you feel like eating and it'll tell you the places you just have to try.</h5>
+          <%= image_tag('../assets/logo_rect.svg', class: 'about-image') %>
+          <h5>It also happens to be a project built by <a href="https://nabeel-elhusayni.com" target="_blank">me</a> for both Database Design as well as Algorithms and Data courses taken at Northeastern University.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
