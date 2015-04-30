@@ -9,7 +9,7 @@ class Restaurant < ActiveRecord::Base
   accepts_nested_attributes_for :contact_detail
 
   def self.search(query_string="")
-    Restaurant.where 'description LIKE ?', "%#{query_string}%"
+    Restaurant.where 'description ILIKE ?', "%#{query_string}%"
   end
 
 end
