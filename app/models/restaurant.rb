@@ -11,7 +11,7 @@ class Restaurant < ActiveRecord::Base
   def self.search(query_string=nil)
     if query_string
       search_length = query_string.split.length
-      Restaurant.where([(['description LIKE ?'] * search_length).join(' AND ')] + query_string.split.map { |string| "%#{string}%" })
+      Restaurant.where([(['description ILIKE ?'] * search_length).join(' AND ')] + query_string.split.map { |string| "%#{string}%" })
     else
       Restaurant.all
     end

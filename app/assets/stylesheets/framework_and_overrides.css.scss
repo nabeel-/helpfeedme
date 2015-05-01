@@ -140,7 +140,7 @@ body {
   border-radius: 5px;
   padding: 5px 10px;
   margin-bottom: 10px;
-  min-height: 200px;
+  min-height: 250px;
 }
 
 .restaurant-detail hr {
@@ -164,14 +164,51 @@ body {
   position: relative;
   width: 1.1em;
   font-size: 18px;
-  color: #7f7f7f;
+  color: #e3553c;
 }
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
-   color: #e3553c;
-   font-size: 18px;
+
+.price {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.price > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  font-size: 18px;
+  color: #e3553c;
+}
+
+.results h4 {
+  margin-bottom: 0;
+  margin-top: 20px;
+  display: inline-block
+}
+
+.results-total {
+  display: inline-block;
+  text-align: right;
+}
+
+.orange {
+  color: #e3553c;
+}
+
+.tags {
+  text-align: center;
+}
+
+.tag {
+  background-color: #e3553c;
+  color: #fff;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+
+a:hover.back-arrow {
+  background-color: #fff;
+  text-decoration: none;
+  color: #e3553c;
 }
 
 // make all images responsive by default

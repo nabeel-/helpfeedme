@@ -1,5 +1,13 @@
 <div class="container">
-  <h3>Results for <%= @query %></h3>
+  <div class="row">
+    <div class="col-xs-4 results">
+      <h4><%= link_to '&#x2190;'.html_safe, :back, class: 'back-arrow'%> Results for <span class="orange"><%= @query %></span></h4>
+    </div>
+    <div class="col-xs-2 col-xs-offset-6 results results-total">
+      <h4 class="results-total"><span class="orange"><%= @res.length %></span> results</h4>
+    </div>
+  </div>
+  <hr>
   <div class="row">
 
     <% @res.each do |restaurant| %>
@@ -37,32 +45,36 @@
                 <tr>
                   <td>
                     <div class="rating">
-                      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      <% (restaurant.rating).to_i.times do |i| %>
+                        <span>☆</span>
+                      <% end %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="price">
+                      <% (restaurant.price).to_i.times do |i| %>
+                        <span>$</span>
+                      <% end %>
                     </div>
                   </td>
                 </tr>
               </table>
+            </div>
+            <div class="col-xs-12">
+
+                    <div class="tags">
+                      <% if restaurant.food_detail.cuisine %>
+                        <% restaurant.food_detail.cuisine.scan(/\"(\w+)\"/).flatten.each do |item| %>
+                          <span class="tag"><%= item %></span>
+                        <% end %>
+                      <% end %>
+                    </div>
             </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @res.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.description %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>

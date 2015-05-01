@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Help Feed Me" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Find the food you want. Fast." %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -14,11 +14,27 @@
         <%= render 'layouts/navigation' %>
       </header>
       <main role="main">
-         <%= render 'layouts/messages' %>
-         <%= yield %>
+      <%= render 'layouts/messages' %>
+      <%= yield %>
       </main>
       <div id="footer">
         <%= render 'layouts/footer' %>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="About" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="title">About</h4>
+          </div>
+          <div class="modal-body">
+            <h5>Help Feed Me is a simple, easy way to find the best food around (Boston). Just enter what you feel like eating and it'll tell you the places you just have to try.</h5>
+            <%= image_tag('../assets/logo_rect.svg', class: 'about-image') %>
+            <h5>It also happens to be a project built by <a href="https://nabeel-elhusayni.com" target="_blank">me</a> for both Database Design as well as Algorithms and Data courses taken at Northeastern University.</h5>
+          </div>
+        </div>
       </div>
     </div>
   </body>
